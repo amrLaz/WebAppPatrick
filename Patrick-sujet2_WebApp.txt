@@ -1,0 +1,6 @@
+Azurerm 3.0.0
+=> Vnet (injecté Outbound)
+=> Web App <= (Private communication(ip address)) => DB Azure SQL (cheapest)
+=> Kv (secrets)
+=>Log analytic (Webapp/DB SQL logs)
+=>AppInsight (WebApp)
