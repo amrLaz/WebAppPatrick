@@ -28,7 +28,7 @@ resource "azurerm_key_vault" "keyvault" {
 }
 
 resource "azurerm_key_vault_secret" "postgresecret" {
-  name         = var.postgre_secret.secret_name
+  name         = "postgresecret"
   value        = var.postgre_secret.secret_value
   key_vault_id = azurerm_key_vault.keyvault.id
 }
