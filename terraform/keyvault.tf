@@ -1,7 +1,7 @@
 data "azurerm_client_config" "current" {}
 
 resource "azurerm_key_vault" "keyvault" {
-  name                       = "tf-keyvault-amr"
+  name                       = "tf-keyvault"
   location                   = azurerm_resource_group.rg.location
   resource_group_name        = azurerm_resource_group.rg.name
   tenant_id                  = data.azurerm_client_config.current.tenant_id
@@ -28,7 +28,7 @@ resource "azurerm_key_vault" "keyvault" {
 }
 
 resource "azurerm_key_vault_secret" "postgresecret" {
-  name         = "postgresecret"
+  name         = "postgresecretwebapp"
   value        = var.postgre_secret.secret_value
   key_vault_id = azurerm_key_vault.keyvault.id
 }
