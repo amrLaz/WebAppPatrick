@@ -7,7 +7,7 @@ resource "azurerm_service_plan" "sp" {
 }
 
 resource "azurerm_windows_web_app" "webapp" {
-  name                = "WebappVnetIntegration"
+  name                = "WebappAmrpostgre"
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_service_plan.sp.location
   service_plan_id     = azurerm_service_plan.sp.id
