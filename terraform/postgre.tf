@@ -12,7 +12,7 @@ resource "azurerm_postgresql_server" "postgreserv" {
   geo_redundant_backup_enabled = false
   auto_grow_enabled            = true
 
-  administrator_login          = "admin"
+  administrator_login          = "adminpostgre"
   administrator_login_password = azurerm_key_vault_secret.postgresecret.value
   version                      = "9.5"
   ssl_enforcement_enabled      = true
