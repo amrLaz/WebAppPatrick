@@ -16,7 +16,7 @@ resource "azurerm_postgresql_server" "postgreserv" {
   administrator_login_password = azurerm_key_vault_secret.postgresecret.value
   version                      = "9.5"
   ssl_enforcement_enabled      = true
-#   public_network_access_enabled = false
+
     
 }
 
