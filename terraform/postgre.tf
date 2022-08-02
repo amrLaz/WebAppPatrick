@@ -5,7 +5,7 @@ resource "azurerm_postgresql_server" "postgreserv" {
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
 
-  sku_name = "B_Gen5_2"
+  sku_name = "GP_Gen5_2"
 
   storage_mb                   = 5120
   backup_retention_days        = 7
