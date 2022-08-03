@@ -7,12 +7,12 @@ terraform {
       version = ">= 2.26"
     }
   }
-   backend "azurerm" {
-        resource_group_name  = "RG-REMOTE-BACKEND"
-        storage_account_name = "tfstatestorageamr"
-        container_name       = "tfstate1"
-        key                  = "terraform.tfstate"
-    }
+  backend "azurerm" {
+    resource_group_name  = "RG-REMOTE-BACKEND"
+    storage_account_name = "tfstatestorageamr"
+    container_name       = "tfstate1"
+    key                  = "terraform.tfstate"
+  }
 }
 
 # Configure the Microsoft Azure Provider

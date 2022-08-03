@@ -12,12 +12,12 @@ resource "azurerm_postgresql_server" "postgreserv" {
   geo_redundant_backup_enabled = false
   auto_grow_enabled            = true
 
-  administrator_login          = "adminpostgre"
+  administrator_login          = "AmrAdmin"
   administrator_login_password = azurerm_key_vault_secret.postgresecret.value
   version                      = "9.5"
   ssl_enforcement_enabled      = true
 
-    
+
 }
 
 resource "azurerm_private_endpoint" "postgreprivateendpoint" {
@@ -29,7 +29,7 @@ resource "azurerm_private_endpoint" "postgreprivateendpoint" {
   private_service_connection {
     name                           = "postgreprivateserviceconnection"
     private_connection_resource_id = azurerm_postgresql_server.postgreserv.id
-    subresource_names              = [ "postgresqlServer" ]
+    subresource_names              = ["postgresqlServer"]
     is_manual_connection           = false
   }
 }

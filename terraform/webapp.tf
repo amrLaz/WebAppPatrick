@@ -14,12 +14,12 @@ resource "azurerm_windows_web_app" "webapp" {
 
   site_config {}
 
-#   app_settings = {
-#     "DBHOST" = "value"
-#     "DBNAME" = "mypostgre"
-#     "DBUSER" = "admin"
-#     "DBPASS" = azurerm_key_vault_secret.postgresecret.value
-#   }
+  #   app_settings = {
+  #     "DBHOST" = "value"
+  #     "DBNAME" = "mypostgre"
+  #     "DBUSER" = "admin"
+  #     "DBPASS" = azurerm_key_vault_secret.postgresecret.value
+  #   }
 }
 
 

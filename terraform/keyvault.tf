@@ -1,7 +1,14 @@
 data "azurerm_client_config" "current" {}
 
+resource "random_password" "self" {
+  length           = 25
+  special          = true
+  lower            = true
+  upper            = true
+  override_special = "_%@"
+}
 resource "azurerm_key_vault" "keyvault" {
-  name                       = "tf-keyvault"
+  name                       = "tf-kv-poctest-amr"
   location                   = azurerm_resource_group.rg.location
   resource_group_name        = azurerm_resource_group.rg.name
   tenant_id                  = data.azurerm_client_config.current.tenant_id
@@ -29,6 +36,6 @@ resource "azurerm_key_vault" "keyvault" {
 
 resource "azurerm_key_vault_secret" "postgresecret" {
   name         = "postgresecretwebapp"
-  value        = var.postgre_secret.secret_value
+  value        = random_password.self.result
   key_vault_id = azurerm_key_vault.keyvault.id
 }
