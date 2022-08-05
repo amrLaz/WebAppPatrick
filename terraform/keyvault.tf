@@ -8,7 +8,7 @@ resource "random_password" "self" {
   override_special = "_%@"
 }
 resource "azurerm_key_vault" "keyvault" {
-  name                       = "tf-kv-poctest-amr"
+  name                       = "kv-poctest-amr"
   location                   = azurerm_resource_group.rg.location
   resource_group_name        = azurerm_resource_group.rg.name
   tenant_id                  = data.azurerm_client_config.current.tenant_id
@@ -35,7 +35,7 @@ resource "azurerm_key_vault" "keyvault" {
 }
 
 resource "azurerm_key_vault_secret" "postgresecret" {
-  name         = "postgresecretwebapp"
+  name         = "kv-secret-webapp-poc-postgre"
   value        = random_password.self.result
   key_vault_id = azurerm_key_vault.keyvault.id
 }

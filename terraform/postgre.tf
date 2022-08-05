@@ -1,7 +1,7 @@
 
 
 resource "azurerm_postgresql_server" "postgreserv" {
-  name                = "tf-postgresql-server"
+  name                = "tf-postgresql-server-amr"
   location            = azurerm_resource_group.rg.location
   resource_group_name = azurerm_resource_group.rg.name
 
@@ -16,6 +16,7 @@ resource "azurerm_postgresql_server" "postgreserv" {
   administrator_login_password = azurerm_key_vault_secret.postgresecret.value
   version                      = "9.5"
   ssl_enforcement_enabled      = true
+  # public_network_access_enabled = false
 
 
 }
@@ -34,11 +35,11 @@ resource "azurerm_private_endpoint" "postgreprivateendpoint" {
   }
 }
 
-# resource "azurerm_postgresql_database" "postgredb" {
-#   name                = "tf-postgredb"
-#   resource_group_name = azurerm_resource_group.rg.name
-#   server_name         = azurerm_postgresql_server.postgreserv.name
-#   charset             = "UTF8"
-#   collation           = "English_United States.1252"
-# }
+resource "azurerm_postgresql_database" "db-webapp-postgre" {
+  name                = "restaurant"
+  resource_group_name = azurerm_resource_group.rg.name
+  server_name         = azurerm_postgresql_server.postgreserv.name
+  charset             = "UTF8"
+  collation           = "English_United States.1252"
+}
 
