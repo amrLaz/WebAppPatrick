@@ -1,5 +1,5 @@
 resource "azurerm_service_plan" "sp" {
-  name                = "python-postgres-webapp-plan-amr"
+  name                = "as-postgressl-webapp-plan-poc"
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
   sku_name            = "P1v2"
@@ -7,7 +7,7 @@ resource "azurerm_service_plan" "sp" {
 }
 
 resource "azurerm_linux_web_app" "webapp" {
-  name                = "python-postgresql-webapp-amr"
+  name                = "as-postgresql-webapp-poc"
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_service_plan.sp.location
   service_plan_id     = azurerm_service_plan.sp.id
@@ -25,6 +25,14 @@ resource "azurerm_linux_web_app" "webapp" {
     "DBNAME" = "restaurant"
     "DBUSER" = "AmrAdmin"
     "DBPASS" = azurerm_key_vault_secret.postgresecret.value
+    # app insight
+    "APPINSIGHTS_INSTRUMENTATIONKEY"                  = azurerm_application_insights.appinsight.instrumentation_key
+    "APPLICATIONINSIGHTS_CONNECTION_STRING"           = azurerm_application_insights.appinsight.connection_string
+    "APPINSIGHTS_PROFILERFEATURE_VERSION"             = "1.0.0"
+    "APPINSIGHTS_SNAPSHOTFEATURE_VERSION"             = "1.0.0"
+    "ApplicationInsightsAgent_EXTENSION_VERSION"      = "~2"
+
+
   }
 }
 
