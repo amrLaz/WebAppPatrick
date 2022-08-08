@@ -14,7 +14,7 @@ resource "azurerm_application_insights_web_test" "appinsightwebtest" {
   name                    = "aiwt-webapp-webtest"
   location                = azurerm_application_insights.appinsight.location
   resource_group_name     = azurerm_resource_group.rg.name
-  application_insights_id = azurerm_application_insights.example.id
+  application_insights_id = azurerm_application_insights.appinsight.id
   kind                    = "ping"
   frequency               = 300
   timeout                 = 60
