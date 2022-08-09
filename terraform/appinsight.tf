@@ -1,7 +1,7 @@
-
+# random uuid
 resource "random_uuid" "random_guid" {
 }
-
+# create log_analytics workspace
 resource "azurerm_log_analytics_workspace" "workspace" {
   name                = "ws-webapp-poc"
   location            = azurerm_resource_group.rg.location
