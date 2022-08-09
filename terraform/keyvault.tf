@@ -35,7 +35,7 @@ resource "azurerm_key_vault" "keyvault" {
 }
 
 resource "azurerm_key_vault_secret" "postgresecret" {
-  name         = "kv-secret-postgres-poc"
+  name         = "kv-secret-postgres"
   value        = random_password.self.result
   key_vault_id = azurerm_key_vault.keyvault.id
 }
