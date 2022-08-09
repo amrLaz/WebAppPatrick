@@ -26,11 +26,11 @@ resource "azurerm_linux_web_app" "webapp" {
     "DBUSER" = "AmrAdmin"
     "DBPASS" = azurerm_key_vault_secret.postgresecret.value
     # app insight
-    "APPINSIGHTS_INSTRUMENTATIONKEY"                  = azurerm_application_insights.appinsight.instrumentation_key
-    "APPLICATIONINSIGHTS_CONNECTION_STRING"           = azurerm_application_insights.appinsight.connection_string
-    "APPINSIGHTS_PROFILERFEATURE_VERSION"             = "1.0.0"
-    "APPINSIGHTS_SNAPSHOTFEATURE_VERSION"             = "1.0.0"
-    "ApplicationInsightsAgent_EXTENSION_VERSION"      = "~2"
+#     "APPINSIGHTS_INSTRUMENTATIONKEY"                  = azurerm_application_insights.appinsight.instrumentation_key
+#     "APPLICATIONINSIGHTS_CONNECTION_STRING"           = azurerm_application_insights.appinsight.connection_string
+#     "APPINSIGHTS_PROFILERFEATURE_VERSION"             = "1.0.0"
+#     "APPINSIGHTS_SNAPSHOTFEATURE_VERSION"             = "1.0.0"
+#     "ApplicationInsightsAgent_EXTENSION_VERSION"      = "~2"
 
 
   }
