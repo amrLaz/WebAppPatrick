@@ -21,6 +21,7 @@ resource "azurerm_linux_web_app" "webapp" {
   }
 
   app_settings = {
+    ENABLE_ORYX_BUILD = true
     "DBHOST" = "tf-postgresql-server"
     "DBNAME" = "restaurant"
     "DBUSER" = "AmrAdmin"
