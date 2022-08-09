@@ -21,6 +21,7 @@ resource "azurerm_linux_web_app" "webapp" {
   }
 
   app_settings = {
+    SCM_DO_BUILD_DURING_DEPLOYMENT=true
     ENABLE_ORYX_BUILD = true
     "DBHOST" = "tf-postgresql-server"
     "DBNAME" = "restaurant"
